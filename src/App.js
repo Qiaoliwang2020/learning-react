@@ -5,6 +5,9 @@ import Paper from '@material-ui/core/Paper';
 
 import Son from './son';
 
+import { ThemeContext, themes } from './theme-context';
+import ThemedButton from './themed-button';
+
 export const {Provider,Consumer} = React.createContext("defaultValue");
 
 const useStyles = makeStyles((theme) => ({
@@ -19,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
-  
   const classes = useStyles();
 
   function FormRow(props){
@@ -58,6 +60,7 @@ function App() {
       </div>
     )
   }
+
   const comment = {
     date:new Date(),
     text: 'I hope you enjoy learning React',
@@ -71,6 +74,7 @@ function App() {
     <li>{number}</li>
   );
   let name = 'test name';
+
   return (
     <div className={classes.root}>
       <Provider value={name}>
@@ -79,6 +83,11 @@ function App() {
            <Son/>
         </div>
       </Provider>
+
+      <ThemeContext.Provider value={{theme:themes.light}}>
+        <ThemedButton></ThemedButton>
+      </ThemeContext.Provider>
+  
       <Comment date={comment.date} text={comment.text} author={comment.author} />
       <ul>
         {listItems}
