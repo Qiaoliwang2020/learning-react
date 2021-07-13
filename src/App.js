@@ -7,6 +7,7 @@ import Son from './son';
 
 import { ThemeContext, themes } from './theme-context';
 import ThemedButton from './themed-button';
+import AddCount from './counter';
 
 export const {Provider,Consumer} = React.createContext("defaultValue");
 
@@ -22,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
+
   const classes = useStyles();
 
   function FormRow(props){
@@ -73,6 +75,7 @@ function App() {
   const listItems = numbers.map((number)=>
     <li>{number}</li>
   );
+
   let name = 'test name';
 
   return (
@@ -87,6 +90,8 @@ function App() {
       <ThemeContext.Provider value={{theme:themes.light}}>
         <ThemedButton></ThemedButton>
       </ThemeContext.Provider>
+
+      <AddCount/>
   
       <Comment date={comment.date} text={comment.text} author={comment.author} />
       <ul>
