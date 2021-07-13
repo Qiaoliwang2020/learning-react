@@ -3,6 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
+import Son from './son';
+
+export const {Provider,Consumer} = React.createContext("defaultValue");
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -66,8 +70,15 @@ function App() {
   const listItems = numbers.map((number)=>
     <li>{number}</li>
   );
+  let name = 'test name';
   return (
     <div className={classes.root}>
+      <Provider value={name}>
+        <div style={{border:'1px solid red', width:'30%', margin:'50px auto',textAlign:'center'}}>
+           <p>my's name :{name}</p>
+           <Son/>
+        </div>
+      </Provider>
       <Comment date={comment.date} text={comment.text} author={comment.author} />
       <ul>
         {listItems}
