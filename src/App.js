@@ -9,6 +9,7 @@ import { ThemeContext, themes } from './theme-context';
 import ThemedButton from './themed-button';
 import AddCount from './counter';
 import Counter from './counterUseReducer';
+import MeasureNode from './measure';
 
 export const {Provider,Consumer} = React.createContext("defaultValue");
 
@@ -81,13 +82,14 @@ function App() {
 
   return (
     <div className={classes.root}>
+      <MeasureNode></MeasureNode>
       <Provider value={name}>
         <div style={{border:'1px solid red', width:'30%', margin:'50px auto',textAlign:'center'}}>
            <p>my's name :{name}</p>
            <Son/>
         </div>
       </Provider>
-      <Counter></Counter>
+      <Counter initialCount={0}></Counter>
 
       <ThemeContext.Provider value={{theme:themes.light}}>
         <ThemedButton></ThemedButton>
