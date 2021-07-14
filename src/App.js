@@ -8,6 +8,7 @@ import Son from './son';
 import { ThemeContext, themes } from './theme-context';
 import ThemedButton from './themed-button';
 import AddCount from './counter';
+import Counter from './counterUseReducer';
 
 export const {Provider,Consumer} = React.createContext("defaultValue");
 
@@ -86,6 +87,7 @@ function App() {
            <Son/>
         </div>
       </Provider>
+      <Counter></Counter>
 
       <ThemeContext.Provider value={{theme:themes.light}}>
         <ThemedButton></ThemedButton>

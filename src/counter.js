@@ -1,4 +1,4 @@
-import React ,{useState} from 'react';
+import React ,{useState,useEffect} from 'react';
 
 // class AddCount extends React.PureComponent{
 //     constructor (props){
@@ -32,6 +32,10 @@ const AddCount =()=>{
         let newCount = count
         setCount(newCount+=1)
     }
+
+    useEffect(() => {
+        document.title = `You clicked ${count} times`;
+      });
 
     return (
         <div>
